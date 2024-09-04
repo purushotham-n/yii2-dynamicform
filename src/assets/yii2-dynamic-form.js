@@ -369,6 +369,17 @@
             });
         }
 
+        // "kartik-v/yii2-numbercontol"
+        var $hasNumberControl = $(widgetOptionsRoot.widgetItem).find('[data-krajee-numbercontrol]');
+        if ($hasNumberControl.length > 0) {
+            $hasNumberControl.each(function() {
+                var configNumberControl = eval($(this).attr('data-krajee-numbercontrol'));
+                configNumberControl.displayId = $(this).parent().prev().attr('id');
+                if ($(this).data('numberControl')) { $(this).numberControl('destroy'); }
+                $(this).numberControl(configNumberControl);
+            });
+        }
+
         // "kartik-v/yii2-money"
         var $hasMaskmoney = $(widgetOptionsRoot.widgetItem).find('[data-krajee-maskMoney]');
         if ($hasMaskmoney.length > 0) {
