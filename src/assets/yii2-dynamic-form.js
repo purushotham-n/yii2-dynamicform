@@ -115,6 +115,9 @@
         var count = _count($elem, widgetOptions);
 
         if (count < widgetOptions.limit) {
+            if(typeof widgetOptions.template=='string'){
+                widgetOptions.template=_parseTemplate(widgetOptions)
+            }
             $toclone = widgetOptions.template;
             $newclone = $toclone.clone(false, false);
 
